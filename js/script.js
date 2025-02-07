@@ -52,3 +52,29 @@ const typed = new Typed ('.multiple-text',{
     backDelay: 1000,
     loop: true
 });
+
+  const form = document.getElementById('contactForm');
+  const responseDiv = document.getElementById('form-response');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    responseDiv.innerHTML = "Sending...";
+
+    fetch(form.action, {
+      method: form.method,
+      body: new FormData(form)
+    })
+    .then(response => {
+      if (response.ok) {
+        responseDiv.innerHTML = "Thank you for your message!";
+        form.reset();
+      } else {
+        responseDiv.innerHTML = "Error sending message. Please try again.";
+      }
+    })
+    .catch(error => {
+      responseDiv.innerHTML = "Error sending message. Please try again later.";
+      console.error('Error:', error);
+    });
+  });
