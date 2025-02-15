@@ -46,7 +46,7 @@ ScrollReveal().reveal('.home-content h1,.about-img',{origin:'left'});
 ScrollReveal().reveal('.home-content p,.about-content',{origin:'left'});
 
 const typed = new Typed ('.multiple-text',{
-    strings: ['EDUCATION','COMPUTER STUDIES','ENGINEERING'],
+    strings: ['Frontend Developer','Network Engineer','Data Administrator'],
     typeSpeed: 100,
     backSpeed: 100,
     backDelay: 1000,
@@ -80,22 +80,4 @@ form.addEventListener('submit', function(event) {
     responseDiv.innerHTML = "Thank you for your message!"; 
     form.reset();
   });
-});
-
-const studentPortalLink = document.querySelector('nav.navbar a[href="#loginform"]');
-const loginFormOverlay = document.getElementById('login-form-overlay');
-
-studentPortalLink.addEventListener('click', (event) => {
-    event.preventDefault();
-    loginFormOverlay.style.display = 'flex';
-});
-
-function closeLoginForm() {
-    loginFormOverlay.style.display = 'none';
-}
-
-loginFormOverlay.addEventListener('click', (event) => {
-    if (event.target === loginFormOverlay) {
-        closeLoginForm();
-    }
 });
